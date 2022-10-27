@@ -6,7 +6,7 @@ $cachetime = 21600; // 6 hours
 include('config.php');
 include('inc/top-cache.php');
 
-$json = file_get_contents( $matomo_url . '/index.php?date=today&filter_limit=50&flat=1&force_api_session=1&format=JSON&idSite=1&method=Actions.getPageUrls&module=API&period=month&segment=&token_auth=' . $token_auth );
+$json = file_get_contents( $matomo_url . '/index.php?date=last30&filter_limit=50&flat=1&force_api_session=1&format=JSON&idSite=1&method=Actions.getPageUrls&module=API&period=range&segment=&token_auth=' . $token_auth );
 $results = json_decode($json);
 
 /* for each result, add the label value to the array */
